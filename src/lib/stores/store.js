@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable, action, computed } from "mobx";
 
 class Store {
   @observable likesCount = 0;
@@ -14,6 +14,10 @@ class Store {
 
   @action addComment(comment) {
     this.comments.push(comment);
+  }
+
+  @computed get commentsCount() {
+    return this.comments.length;
   }
 }
 
